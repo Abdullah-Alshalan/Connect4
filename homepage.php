@@ -74,7 +74,6 @@ transition: .5s;
 </nav>
 <body style="background-image: url('back.jpg');background-repeat:no-repeat;
 background-size:100% 91.5%;background-attachment:fixed;background-position:bottom;">
-<p >hello</p>
 
 
 </body>
