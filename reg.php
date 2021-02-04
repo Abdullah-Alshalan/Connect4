@@ -10,7 +10,6 @@ $pass=$_POST['password'];
 $name=$_POST['username'];
 $_SESSION['email']=$email;//make sure if its in database
 
-;
 $s= "select * from usertable2 where email='$email'";//check
 $result = mysqli_query($con , $s);//validation email -- true or false "1,0"
 
