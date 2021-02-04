@@ -1,7 +1,7 @@
 <?php
 session_start();
 function resVal(){
-    //testing git 
+    
     $con = mysqli_connect('localhost', 'root');
 
     mysqli_select_db($con, 'userregistration2');
