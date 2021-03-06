@@ -1,27 +1,29 @@
 <?php
 session_start();
-function resVal(){
+
     
-    $con = mysqli_connect('localhost', 'root');
+$con = mysqli_connect('localhost', 'root');
 
-    mysqli_select_db($con, 'userregistration2');
+mysqli_select_db($con, 'userregistration2');
 
-    $email=$_SESSION['email'];
-    $pass=$_SESSION['password'];
+$email=$_SESSION['email'];
 
-    $s = "select * from usertable2 where email='$email' && password = '$pass'";
 
-    $result = mysqli_query($con , $s);
-if($_SESSION['wins'] == 1){//true
-    echo "email already exist";
-    $result = $_SESSION['wins']+1;
-    $reg="insert into usertable2(wins) values('$result')";
+$games = $_SESSION['games']+1;
+
+$has_won = $_POST['has_won'] == "true";
+
+
+if($has_won){//true
+    $wins = $_SESSION['wins']+1;
+    $_SESSION['wins'] = $wins;
+    $reg="Update usertable2 set wins = '$wins' where email = '$email'";
     mysqli_query($con,$reg);
-    
 }
-    $result = $_SESSION['games']+1;
-    $reg="insert into usertable2(games) values('$result')";
-    mysqli_query($con,$reg);
+$_SESSION['games'] = $games;
+$reg="Update usertable2 set games = '$games' where email = '$email'";
+mysqli_query($con,$reg);
 
-}
+
+
 ?>

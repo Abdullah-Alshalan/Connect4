@@ -1,236 +1,235 @@
 <!DOCTYPE html>
 <html>
-<style>
+<head>
+    <?php
+    session_start();
+    ?>
+    <style>
 
-  /* game css */
+          
   
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
 
-}
-/* h1{	padding: 8px 20px;
-	margin: 10px 0;
-    } */
+        }
+        /* h1{	padding: 8px 20px;
+	        margin: 10px 0;
+            } */
 
-    * {
-	border: 0;
-	padding: 0;
-}
+            * {
+	        border: 0;
+	        padding: 0;
+        }
 
-.game-board {
-	background: #0074B3;
-  width: 900px;
-  padding-left: 0px;
-  padding-right: 45px;
-  cursor: pointer;
-  border-radius:20px;
-  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.6);
-}
+        .game-board {
+	        background: #0074B3;
+          width: 900px;
+          padding-left: 0px;
+          padding-right: 45px;
+          cursor: pointer;
+          border-radius:20px;
+          box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.6);
+        }
 
-.column {
-	width: 100px;
-	display: inline-block;
-} 
+        .column {
+	        width: 100px;
+	        display: inline-block;
+        } 
 
-.column:hover  circle.free{
-	fill: #D5E4ED;
-} 
+        .column:hover  circle.free{
+	        fill: #D5E4ED;
+        } 
 
-circle.free {
-	fill: #fff;
-}
+        circle.free {
+	        fill: #fff;
+        }
 
-circle.red {
-	fill: #D50000;
-}
+        circle.red {
+	        fill: #D50000;
+        }
 
-circle.yellow {
-	fill: #DAD400;
-}
+        circle.yellow {
+	        fill: #DAD400;
+        }
 
-/* other css  */
+        /* other css  */
 
-input[type=text] {
-  width: 55%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  margin-left: auto;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: left;
-  box-sizing: border-box;
-  /* background-color:red; */
-}
+        input[type=text] {
+          width: 55%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          margin-left: auto;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          text-align: left;
+          box-sizing: border-box;
+          /* background-color:red; */
+        }
 
-input[type=submit] {
-  width: 50%;
-  background-color: #0082e6;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  margin-left: auto;
-  border-radius: 4px;
-  cursor: pointer;
-}
-input[type=submit]:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-input[type=radio]:after {
-    width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #d1d3d1;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 0.75px solid white;
-}
-input[type=radio]:checked:after {
-    width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: yellow;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 0.25px solid white;
-}
+        input[type=submit] {
+          width: 50%;
+          background-color: #0082e6;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          margin-left: auto;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        input[type=submit]:hover {
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        input[type=radio]:after {
+            width: 15px;
+                height: 15px;
+                border-radius: 15px;
+                top: -2px;
+                left: -1px;
+                position: relative;
+                background-color: #d1d3d1;
+                content: '';
+                display: inline-block;
+                visibility: visible;
+                border: 0.75px solid white;
+        }
+        input[type=radio]:checked:after {
+            width: 15px;
+                height: 15px;
+                border-radius: 15px;
+                top: -2px;
+                left: -1px;
+                position: relative;
+                background-color: yellow;
+                content: '';
+                display: inline-block;
+                visibility: visible;
+                border: 0.25px solid white;
+        }
 
-div {
-  border-radius: 0px;
-  padding: 20px;
-}
+        div {
+          border-radius: 0px;
+          padding: 20px;
+        }
 
 
-*{
-    padding: 0;
-    margin: 2;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+        *{
+            padding: 0;
+            margin: 2;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
 
-}
-body{
-    font-family: montserrat;
+        }
+        body{
+            font-family: montserrat;
 
-}
-nav{
-    background: #0082e6;
-    height: 80px;
-    width: 100%;
-    overflow: hidden;
-}
-label.logo{
-    color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 100px;
-    font-weight: bold;
-}
-nav ul{
-    float: right;
-    margin-right: 20px;
+        }
+        nav{
+            background: #0082e6;
+            height: 80px;
+            width: 100%;
+            overflow: hidden;
+        }
+        label.logo{
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 100px;
+            font-weight: bold;
+        }
+        nav ul{
+            float: right;
+            margin-right: 20px;
 
-}
-img{
-    position:absolute;
-}
-nav ul li{
-    display: inline-block;
-    line-height: 80px;
-    margin: 5px;
-}
-nav ul li a{
-    color: white;
-    font-size:  24px;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-a.active ,a:hover{
-background: #1b9bff;
-transition: .5s;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  max-width: fit-content;
-  height: 100;
-  margin: -4% auto;
-  text-align: center;
-  font-family: arial;
-  background-color:#808080;
-  border-radius:25px;
-  /* padding:20px; */
-  width:60%;
-  color:white;
-}
-.card1 {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  max-width: fit-content;
-  height: fit-content;
-  margin: 3% 0% auto 2%;
-  text-align: center;
-  font-family: arial;
-  background-color:#D50000;
-  border-radius:25px;
-  /* padding:20px; */
-  width:60%;
-  color:white;
-}
-.card2 {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  max-width: fit-content;
-  height: fit-content;
-  margin: -5% 2% 2% auto;
-  text-align: center;
-  font-family: arial;
-  background-color:#DAD400;
-  border-radius:25px;
-  /* padding:20px; */
-  width:60%;
-  color:black;
-}
-
+        }
+        img{
+            position:absolute;
+        }
+        nav ul li{
+            display: inline-block;
+            line-height: 80px;
+            margin: 5px;
+        }
+        nav ul li a{
+            color: white;
+            font-size:  24px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        a.active ,a:hover{
+        background: #1b9bff;
+        transition: .5s;
+        }
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+          max-width: fit-content;
+          height: 100;
+          margin: -4% auto;
+          text-align: center;
+          font-family: arial;
+          background-color:#808080;
+          border-radius:25px;
+          /* padding:20px; */
+          width:60%;
+          color:white;
+        }
+        .card1 {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+          max-width: fit-content;
+          height: fit-content;
+          margin: 3% 0% auto 2%;
+          text-align: center;
+          font-family: arial;
+          background-color:#D50000;
+          border-radius:25px;
+          /* padding:20px; */
+          width:60%;
+          color:white;
+        }
+        .card2 {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+          max-width: fit-content;
+          height: fit-content;
+          margin: -5% 2% 2% auto;
+          text-align: center;
+          font-family: arial;
+          background-color:#DAD400;
+          border-radius:25px;
+          /* padding:20px; */
+          width:60%;
+          color:black;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameAfter</title>
-</head>
-<html>
-<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 <nav>
-<?php
-session_start();
-$guest=$_POST["player2"];
-$first=$_POST["begins"];
-$wins=0;
-
-// $username = $_SESSION["username"];
-// $guestname = $_SESSION["guestname"];
-?>
-<img class = "logo" src="logo.png" width ="18%" height="8.5%" opacity="1">   
-<ul>
-    <li><a class ="#"><a class="btn btn-outline-primary" href="homepageAFT.php">home</a></li>
-    <li><a href = "#"><a class="active" href="creategame.php">create game</a></li>
-    <li><a href = "#"><a class="btn btn-outline-primary" href="account.php">account</a></li>
-    <li><a href = "#"><a class="btn btn-outline-primary" href="signout.php">signout</a></li>
-  </ul>
+    <?php
+    
+    $guest=$_POST["player2"];
+    $first=$_POST["begins"];
+    $_SESSION['has_won'] = false;
+    // $username = $_SESSION["username"];
+    // $guestname = $_SESSION["guestname"];
+    ?>
+    <img class = "logo" src="logo.png" width ="18%" height="8.5%" opacity="1">   
+    <ul>
+        <li><a class ="#"><a class="btn btn-outline-primary" href="homepageAFT.php">home</a></li>
+        <li><a href = "#"><a class="active" href="creategame.php">create game</a></li>
+        <li><a href = "#"><a class="btn btn-outline-primary" href="account.php">account</a></li>
+        <li><a href = "#"><a class="btn btn-outline-primary" href="signout.php">signout</a></li>
+      </ul>
 </nav>
-
-</style>
+<
 <body style="background-image: url('back.jpg');background-repeat:repeat-y;
 background-size:100% 91.5%;background-attachment:fixed;background-position:bottom;">
 <!-- <img src ="back.jpg" position="absolute" width ="100%" height="90%"> -->
@@ -438,7 +437,6 @@ var ConnectFour = function() {
     };
     
     var markNextFree = function(x) {
-
         var nextY;
         
         nextY = false;
@@ -463,40 +461,34 @@ var ConnectFour = function() {
         
         /////////////////////////////////////////////////////////////////
         if(isWinner(parseInt(x), nextY)) {
-          if(currentPlayer == 'red'){
-            alert("<?php echo $_SESSION["username"] ?>" +' wins!');
-            //function for wins
-            <?php
-            $_SESSION['wins'] = 1;
-            ?>
-            
-            //function for finshing
-
-          }
-          else{
-            alert("<?php echo $guest ?>" +' wins!');
-            //function for finshing
-            <?php
-            $_SESSION['wins'] = 0;
-            ?>
-          }
-          ///////////////////////////////////////////////////////////
-// <?php
-// $con = mysqli_connect('localhost', 'root');
-
-// mysqli_select_db($con, 'userregistration2');
-
-// $email=$_POST['email'];
-// $pass=$_POST['password'];
-
-
-// // $s = "select * from usertable2 where email='$email' && password = '$pass'";
-// $result = mysqli_query($con , $s);
-// $c = "update usertable2 SET games = games+1 WHERE email='$email' && password = '$pass'"
-// ?>
-          // resval(); //here is the problemmmmmmooooooooooo
-          
-         window.location.replace("homepageAFT.php");
+            if(currentPlayer == 'red'){
+                alert("<?php echo $_SESSION['username'] ?>"+ " wins!");
+                $.ajax({
+                    url: 'resVal.php',
+                    type: 'POST',
+                    data: { has_won: true },    
+                    complete: function (res) {
+                        alert("<?php echo $_SESSION['username'] ?>"+ " wins!");
+                    },
+                    error: function () {
+                        alert("something went wrong");
+                    }
+                });
+            }else{
+                alert("<?php echo $guest ?>"+ " wins!");
+                $.ajax({
+                    url: 'resVal.php',
+                    type: 'POST',
+                    data: { has_won: false },
+                    complete: function (res) {
+                        alert("<?php echo $guest ?>"+ " wins!");
+                    },
+                    error: function () {
+                        alert("something went wrong");
+                    }
+                });
+            }
+            window.location.replace("homepageAFT.php");
             return true;
         }
 
@@ -599,33 +591,4 @@ ConnectFour();
 
 
 </body>
-<!-- <?php
-// session_start();
-// function resVal(){
-    
-//     $con = mysqli_connect('localhost', 'root');
-
-//     mysqli_select_db($con, 'userregistration2');
-
-//     $email=$_SESSION['email'];
-//     $pass=$_SESSION['password'];
-
-//     $s = "select * from usertable2 where email='$email' && password = '$pass'";
-
-//     $result = mysqli_query($con , $s);
-   
-// if($_SESSION['wins'] == 1){//true
-//     echo "email already exist";
-//     $result = $_SESSION['wins']+1;
-//     $reg="insert into usertable2(wins) values('$result')";
-//     mysqli_query($con,$reg);
-    
-// }
-//     $result = $_SESSION['games']+1;
-//     $reg="insert into usertable2(games) values('$result')";
-//     mysqli_query($con,$reg);
-
-// }
-?> -->
-
 </html>
